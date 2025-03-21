@@ -1,0 +1,90 @@
+/* index.css */
+.header-index {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--padding-principal);
+    background-color: var(--color-fondo);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header-index h1 {
+    color: var(--color-principal);
+    margin: 0;
+    font-size: 28px;
+}
+
+.header-index nav {
+    display: flex;
+    align-items: center;
+}
+
+.header-index nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.header-index nav ul li {
+    margin: 0 1rem;
+}
+
+.header-index nav ul li a {
+    color: var(--color-texto);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.header-index nav ul li a:hover {
+    background-color: var(--color-principal);
+    color: white;
+}
+
+.section-index {
+    background-color: var(--color-fondo);
+    padding: var(--padding-principal);
+    margin: var(--margen-principal);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.heading-index {
+    color: var(--color-principal);
+    font-size: 22px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Estilos para el contenedor de productos */
+#productos-scope {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Media queries para responsividad */
+@media (max-width: 768px) {
+    .header-index {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px var(--padding-principal);
+    }
+    
+    .header-index nav {
+        margin-top: 15px;
+    }
+    
+    .header-index nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .header-index nav ul li {
+        margin: 5px;
+    }
+}

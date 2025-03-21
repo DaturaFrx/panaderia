@@ -1,0 +1,74 @@
+@import url('variables.css');
+
+/* Estilos generales */
+body {
+    font-family: var(--fuente-principal);
+    font-size: var(--tamano-fuente);
+    color: var(--color-texto);
+    background-color: var(--color-secundario);
+    margin: 0;
+    padding: 0;
+}
+
+.header-principal {
+    background-color: var(--color-principal);
+    color: white;
+    text-align: right;
+    padding: 0.5rem;
+    padding-right: 40px;
+}
+
+.header-index {
+    font-size: 20px;
+    background-color: var(--color-secundario);
+    color: var(--color-principal);
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.header-index h1 {
+    font-size: 30px;
+    margin-right: 2rem;
+    margin-left: 0;
+}
+
+footer {
+    background-color: var(--color-principal);
+    color: white;
+    text-align: center;
+    padding: var(--padding-principal);
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+h1 {
+    font-size: var(--tamano-titulo);
+    margin: 0;
+}
+
+a {
+    color: var(--color-enlace);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+nav ul {
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin: 10px;
+}
+
+nav ul li a {
+    font-weight: bold;
+}

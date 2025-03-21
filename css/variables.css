@@ -1,0 +1,23 @@
+/* Variables globales */
+
+/* Colores */
+:root {
+    --color-principal: #ff7f50;
+    --color-secundario: #f5f5f5;
+    --color-texto: #333333;
+    --color-enlace:rgb(255, 255, 255);
+    --color-fondo: #ffffff;
+}
+
+:root {
+    --fuente-principal: 'Segoe UI', sans-serif;
+    --fuente-secundaria: 'Verdana', sans-serif;
+    --fuente-terciaria: 'Arial', sans-serif;
+    --tamano-fuente: 16px;
+    --tamano-titulo: 24px;
+}
+
+:root {
+    --margen-principal: 20px;
+    --padding-principal: 20px;
+}
