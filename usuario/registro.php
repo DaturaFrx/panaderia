@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $correo = $_POST['correo'];
     $contraseña = $_POST['contraseña'];
     $rol = 'cliente';  // Por defecto, todos los usuarios registrados son clientes
-    
+
     // Validar que los campos no estén vacíos
     if (empty($nombre) || empty($correo) || empty($contraseña)) {
         $mensaje_error = "Por favor, rellena todos los campos.";
@@ -36,46 +36,47 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 ?>
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro de Usuario</title>
     <link rel="stylesheet" href="../css/styles.css">
 </head>
+
 <body>
     <div class="container">
         <h1>Registro de Usuario</h1>
-        
-        <?php if(isset($mensaje_error)): ?>
+
+        <?php if (isset($mensaje_error)): ?>
             <div class="mensaje error"><?php echo $mensaje_error; ?></div>
         <?php endif; ?>
-        
-        <?php if(isset($mensaje_exito)): ?>
+
+        <?php if (isset($mensaje_exito)): ?>
             <div class="mensaje exito"><?php echo $mensaje_exito; ?></div>
         <?php endif; ?>
-        
+
         <form method="POST" action="" class="formulario">
             <div class="campo">
                 <label for="nombre">Nombre:</label>
                 <input type="text" id="nombre" name="nombre" required>
             </div>
-            
+
             <div class="campo">
                 <label for="correo">Correo Electrónico:</label>
                 <input type="email" id="correo" name="correo" required>
             </div>
-            
+
             <div class="campo">
                 <label for="contraseña">Contraseña:</label>
                 <input type="password" id="contraseña" name="contraseña" required>
             </div>
-            
-            <!-- Se eliminó el selector de rol -->
-            
+
             <button type="submit" class="boton">Registrar</button>
         </form>
-        
+
         <p class="enlace">¿Ya tienes cuenta? <a href="login.php">Inicia sesión</a></p>
     </div>
 </body>
+
 </html>

@@ -1,11 +1,12 @@
 <?php
 session_start();
 include '../configuracion.php'; // Conexión a la base de datos
+include 'cookieSession.php'; // Manejo de cookies
 
 // Verificar si el formulario fue enviado
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Recoger los datos del formulario
-    $correo = $_POST['correo'];
+    $correo = trim($_POST['correo']);
     $contraseña = $_POST['contraseña'];
 
     // Validar datos
@@ -24,7 +25,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['nombre'] = $usuario['nombre'];
             $_SESSION['rol'] = $usuario['rol'];
 
-            // Redirigir al usuario a la página principal o panel
+            // Si el usuario marca "Recuérdame", se crean cookies válidas por 30 días
+            if (!empty($_POST['recordar'])) {
+                setcookie("usuario_id", $usuario['id'], time() + (86400 * 30), "/");
+                setcookie("nombre", $usuario['nombre'], time() + (86400 * 30), "/");
+                setcookie("rol", $usuario['rol'], time() + (86400 * 30), "/");
+            }
+
+            // Redirigir al usuario a la página principal
             header("Location: ../index.php");
             exit();
         } else {
@@ -36,11 +44,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar sesión</title>
 </head>
+
 <body>
     <h1>Iniciar sesión</h1>
     <form method="POST" action="">
@@ -50,8 +60,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <label for="contraseña">Contraseña:</label>
         <input type="password" id="contraseña" name="contraseña" required>
         <br>
+        <label>
+            <input type="checkbox" name="recordar"> Recuérdame
+        </label>
+        <br>
         <button type="submit">Iniciar sesión</button>
     </form>
     <p>¿No tienes cuenta? <a href="registro.php">Regístrate</a></p>
 </body>
+
 </html>
